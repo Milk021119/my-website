@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://my-website-five-smoky.vercel.app/'
 languageCode = 'zh-cn'
 title = '我的个人空间'
 theme = 'PaperMod'
