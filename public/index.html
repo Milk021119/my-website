@@ -72,6 +72,16 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new TypeIt("#typing-title", {
+      strings: ["欢迎来到我的数字空间", "这里记录生活与思考", "很高兴遇见你！"],
+      speed: 50,
+      loop: true,
+      breakLines: false
+    }).go();
+  });
 </script>
 </head>
 <body class="list" id="top">
@@ -109,7 +119,7 @@
 <main class="main"> 
 <article class="first-entry home-info">
     <header class="entry-header">
-        <h1>你好，欢迎来到我的网页！ 👋</h1>
+        <h1><span id='typing-title'></span></h1>
     </header>
     <div class="entry-content">
         这是我亲手搭建的第一个网站，以后我会在这里分享视频和文章。
@@ -160,6 +170,18 @@
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<script type="text/javascript"
+        color="0,0,255" 
+        opacity='0.7' 
+        zIndex="-1" 
+        count="99" 
+        src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/2.0.4/canvas-nest.js">
+</script>
+
+<script>
+  
+  
+</script>
 
 <script>
     let menu = document.getElementById('menu');
