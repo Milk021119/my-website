@@ -17,7 +17,7 @@ theme = 'PaperMod'
     # 显示社交链接（可选）
     [[params.socialIcons]]
         name = "bilibili"
-        url = "https://www.bilibili.com"
+        url = "https://space.bilibili.com/371366292"
 
 [markup.goldmark.renderer]
     unsafe = true
