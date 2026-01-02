@@ -1,0 +1,23 @@
+baseURL = 'http://example.org/'
+languageCode = 'zh-cn'
+title = '我的个人空间'
+theme = 'PaperMod'
+
+[params]
+    # ... 你之前的代码 ...
+    listAllPages = true
+    # 让主页显示文章
+    mainSections = ["posts"]
+    defaultTheme = "auto"
+    # 开启个人简介模式
+    [params.homeInfoParams]
+        Title = "你好，欢迎来到我的网页！ 👋"
+        Content = "这是我亲手搭建的第一个网站，以后我会在这里分享视频和文章。"
+
+    # 显示社交链接（可选）
+    [[params.socialIcons]]
+        name = "bilibili"
+        url = "https://www.bilibili.com"
+
+[markup.goldmark.renderer]
+    unsafe = true
