@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>404 Page not found | 我的个人空间</title>
+<title>404 Page not found | 豆浆的个人空间</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -81,12 +81,153 @@
     }).go();
   });
 </script>
+<style>
+ 
+:root {
+    --theme: #f0f1f5 !important; 
+    --primary: #3d3d5c !important; 
+}
+
+ 
+body:not(.dark) {
+     
+    background: linear-gradient(135deg, 
+        #d1d9e6 0%,    
+        #e2d1f0 40%,   
+        #f0d5d5 100%   
+    ) fixed !important;
+}
+
+body.dark {
+     
+    background: linear-gradient(135deg, #10101a 0%, #1a1a2e 100%) fixed !important;
+}
+
+ 
+.post-entry, .post-single {
+     
+    background: rgba(255, 255, 255, 0.5) !important; 
+    backdrop-filter: blur(25px) saturate(130%);  
+    -webkit-backdrop-filter: blur(25px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05) !important;
+}
+
+#typing-title {
+    color: #6a5acd !important;  
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+}
+</style>
+<style>
+ 
+.nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: space-between !important;  
+}
+
+ 
+#menu {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px;  
+    position: static !important;
+}
+
+ 
+#menu li:nth-last-child(-n+2) {
+    position: absolute;
+}
+#menu li:nth-last-child(2) { right: 120px; }  
+#menu li:nth-last-child(1) { right: 20px; }   
+
+ 
+#menu li:nth-last-child(-n+2) a {
+    background: rgba(155, 89, 182, 0.15) !important;
+    border: 1px solid rgba(155, 89, 182, 0.3) !important;
+    padding: 6px 18px !important;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #9b59b6 !important;
+}
+
+ 
+@media screen and (min-width: 1200px) {
+    .main {
+        display: grid !important;
+        grid-template-columns: 350px 1fr !important;  
+        gap: 50px;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 40px 20px;
+        align-items: start;
+    }
+
+     
+    .main::before {
+        content: "";  
+        display: none;
+    }
+
+     
+    .main {
+        position: relative;
+    }
+}
+
+ 
+ 
+.home-info {
+    grid-column: 1;  
+    position: sticky;
+    top: 100px;
+    width: 350px;
+    min-height: 500px;
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 30px !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+ 
+.home-info::after {
+    content: "📌 快速书签\A 🔖 我的收藏\A 📂 视频存档\A 🛠️ 实验工具";
+    white-space: pre-wrap;
+    display: block;
+    margin-top: 30px;
+    line-height: 3;
+    font-size: 16px;
+    color: #9b59b6;
+    border-top: 1px dashed rgba(155, 89, 182, 0.3);
+    padding-top: 20px;
+}
+
+ 
+.post-entry, .post-single {
+    grid-column: 2;  
+    max-width: 800px;  
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+}
+
+ 
+@media screen and (max-width: 1199px) {
+    .main { display: block !important; }
+    .home-info { width: 100%; position: static; margin-bottom: 30px; }
+}
+</style>
 </head>
 <body class="list" id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="我的个人空间 (Alt + H)">我的个人空间</a>
+            <a href="http://localhost:1313/" accesskey="h" title="豆浆的个人空间 (Alt + H)">豆浆的个人空间</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -111,6 +252,36 @@
             </div>
         </div>
         <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts" title="视频">
+                    <span>视频</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/archives" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/login" title="登录">
+                    <span>登录</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/register" title="注册">
+                    <span>注册</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -119,7 +290,7 @@
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/">我的个人空间</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/">豆浆的个人空间</a></span> · 
 
     <span>
         Powered by
@@ -131,105 +302,133 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
         <path d="M12 6H0l6-6z" />
     </svg>
-</a>
-<canvas id="bubble-canvas" style="position:fixed;top:0;left:0;z-index:-1;width:100%;height:100%;pointer-events:none;"></canvas>
-
-
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-
-<style>
-     
-    #cursor-dot, #cursor-ring {
-        position: fixed;
-        top: 0;       
-        left: 0;      
-        pointer-events: none;
-        border-radius: 50%;
-        z-index: 9999;
-        opacity: 0;   
-        transition: opacity 0.3s;
-    }
-    #cursor-dot {
-        width: 8px;
-        height: 8px;
-        background: #adadff;
-    }
-    #cursor-ring {
-        width: 30px;
-        height: 30px;
-        border: 2px solid #adadff;
-         
-        transition: transform 0.15s ease-out, opacity 0.3s;
-    }
-</style>
+</a><canvas id="snow-canvas" style="position:fixed;top:0;left:0;z-index:-1;width:100%;height:100%;pointer-events:none;"></canvas>
 
 <script>
- 
 (function() {
-    const canvas = document.getElementById('bubble-canvas');
-    if(!canvas) return;
+    const canvas = document.getElementById('snow-canvas');
     const ctx = canvas.getContext('2d');
-    let width, height, bubbles;
+    let width, height, flakes;
+
     function init() {
         width = window.innerWidth;
         height = window.innerHeight;
         canvas.width = width;
         canvas.height = height;
-        bubbles = [];
-        for (let i = 0; i < 40; i++) { bubbles.push(new Bubble()); }
+        flakes = [];
+        
+        for (let i = 0; i < 150; i++) {
+            flakes.push(new Snowflake());
+        }
     }
-    function Bubble() {
+
+    function Snowflake() {
+        
         this.x = Math.random() * width;
         this.y = Math.random() * height;
         this.radius = Math.random() * 3 + 1;
-        this.opacity = Math.random() * 0.5;
-        this.velX = Math.random() * 0.5 - 0.25;
-        this.velY = Math.random() * 0.5 - 0.25;
+        
+        
+        this.vx = (Math.random() - 0.5) * 0.5; 
+        this.vy = Math.random() * 0.6 + 0.2;   
+        
+        this.opacity = Math.random() * 0.6 + 0.2;
+        this.fuzziness = Math.random() * 3;    
     }
-    Bubble.prototype.draw = function() {
+
+    Snowflake.prototype.draw = function() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(173, 216, 230, ${this.opacity})`;
+        
+        
+        ctx.shadowBlur = this.fuzziness + 2; 
+        ctx.shadowColor = "rgba(100, 100, 150, 0.3)"; 
+        
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
         ctx.fill();
-    };
-    Bubble.prototype.update = function() {
-        this.x += this.velX;
-        this.y += this.velY;
-        if (this.x < 0 || this.x > width) this.velX *= -1;
-        if (this.y < 0 || this.y > height) this.velY *= -1;
-    };
+        ctx.shadowBlur = 0;
+    }
+
+    Snowflake.prototype.update = function() {
+        
+        this.x += this.vx + (Math.random() - 0.5) * 0.2;
+        this.y += this.vy;
+
+        
+        if (this.y > height) {
+            this.y = -10;
+            this.x = Math.random() * width;
+        }
+        if (this.x > width) this.x = 0;
+        if (this.x < 0) this.x = width;
+    }
+
     function animate() {
         ctx.clearRect(0, 0, width, height);
-        bubbles.forEach(bubble => { bubble.update(); bubble.draw(); });
+        flakes.forEach(f => {
+            f.update();
+            f.draw();
+        });
         requestAnimationFrame(animate);
     }
+
     window.addEventListener('resize', init);
     init();
     animate();
-})();
 
- 
-(function() {
+     
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
-    
-    if(!dot || !ring) return;
-
     document.addEventListener('mousemove', (e) => {
-        
+        const x = e.clientX, y = e.clientY;
         requestAnimationFrame(() => {
-            const x = e.clientX;
-            const y = e.clientY;
-            
             dot.style.transform = `translate(${x - 4}px, ${y - 4}px)`;
             ring.style.transform = `translate(${x - 15}px, ${y - 15}px)`;
-            
-            dot.style.opacity = "1";
-            ring.style.opacity = "1";
+            dot.style.opacity = "1"; ring.style.opacity = "1";
         });
     });
 })();
+</script>
+
+<style>
+    #cursor-dot, #cursor-ring {
+        position: fixed; top: 0; left: 0; pointer-events: none;
+        border-radius: 50%; z-index: 9999; opacity: 0;
+    }
+    #cursor-dot { width: 8px; height: 8px; background: #9b59b6; }
+    #cursor-ring { width: 30px; height: 30px; border: 2px solid #9b59b6; transition: transform 0.2s ease-out; }
+</style>
+<div id="live-clock"></div>
+
+<style>
+    #live-clock {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        color: rgba(61, 61, 92, 0.6);  
+        background: rgba(255, 255, 255, 0.3);
+        padding: 5px 12px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        pointer-events: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+</style>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                        now.getMinutes().toString().padStart(2, '0') + ":" + 
+                        now.getSeconds().toString().padStart(2, '0');
+        const dateStr = (now.getMonth() + 1) + "月" + now.getDate() + "日 ";
+        document.getElementById('live-clock').innerText = dateStr + timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 </script>
 
 <script>

@@ -1,22 +1,23 @@
-
+{{ define "main" }}
+<!-- 这行是为了保持 Hugo 的渲染逻辑，但我们其实可以直接写 HTML -->
+{{ end }}
 
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<meta name="generator" content="Hugo 0.154.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
-    <title></title>
+    <title>{{ .Site.Title }}</title>
     <style>
-         
+        /* --- 1. 全部推翻，从零开始定义布局 --- */
         * { margin: 0; padding: 0; box-box: border-box; }
         
         body {
-            background-color: #f4f6f8;  
+            background-color: #f4f6f8; /* Saber 风格淡灰底色 */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
         }
 
-         
+        /* --- 2. 左侧固定侧边栏 --- */
         #sidebar {
             position: fixed;
             left: 0; top: 0; bottom: 0;
@@ -59,9 +60,9 @@
             transform: translateX(5px);
         }
 
-         
+        /* --- 3. 右侧内容滚动区 --- */
         #content {
-            margin-left: 280px;  
+            margin-left: 280px; /* 给侧边栏留出位置 */
             width: calc(100% - 280px);
             padding: 60px 40px;
             display: flex;
@@ -96,7 +97,7 @@
             line-height: 1.6;
         }
 
-         
+        /* --- 4. 之前你喜欢的打字机文字，我们也接管过来 --- */
         #typing-area {
             max-width: 800px;
             width: 100%;
@@ -109,7 +110,7 @@
 </head>
 <body>
 
-    
+    <!-- 左侧侧边栏 -->
     <div id="sidebar">
         <h1>豆浆的空间</h1>
         <ul class="side-menu">
@@ -119,33 +120,31 @@
             <li><a href="/about">☕ 关于</a></li>
         </ul>
         
-        
+        <!-- 登录注册按钮 -->
         <div style="margin-top: auto;">
             <a href="#" style="display:block; padding:12px; background:#9b59b6; color:white; text-align:center; border-radius:12px; text-decoration:none; margin-bottom:10px;">登录</a>
             <a href="#" style="display:block; padding:12px; border:1px solid #9b59b6; color:#9b59b6; text-align:center; border-radius:12px; text-decoration:none;">注册</a>
         </div>
     </div>
 
-    
+    <!-- 右侧内容区 -->
     <div id="content">
-        
+        <!-- 打字机区域 -->
         <div id="typing-area">
             <span id="typing-title"></span>
         </div>
 
-        
-        
+        <!-- 循环显示你的文章列表 -->
+        {{ range .Paginator.Pages }}
         <div class="post-card">
-            <h2><a href="//localhost:1313/posts/first/" style="text-decoration:none; color:inherit;">欢迎来到我的空间</a></h2>
-            <p><h3 id="嘿这是我的第一个网页">嘿！这是我的第一个网页</h3>
-<p>大家好，这是我亲手搭建的网页。下面是我分享的一个视频：</p>
-<!-- raw HTML omitted -->...</p>
-            <div style="margin-top:15px; font-size:13px; color:#999;">2026-01-02</div>
+            <h2><a href="{{ .Permalink }}" style="text-decoration:none; color:inherit;">{{ .Title }}</a></h2>
+            <p>{{ .Summary }}...</p>
+            <div style="margin-top:15px; font-size:13px; color:#999;">{{ .Date.Format "2006-01-02" }}</div>
         </div>
-        
+        {{ end }}
     </div>
 
-    
+    <!-- 重新引入打字机脚本 -->
     <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
     <script>
         new TypeIt("#typing-title", {

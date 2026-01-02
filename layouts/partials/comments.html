@@ -1,0 +1,72 @@
+<style>
+    /* 让评论区容器稍微透明，并增加一点间距 */
+    .giscus {
+        background-color: rgba(255, 255, 255, 0.05); /* 极细微的透明白，在黑夜模式下很高级 */
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 50px;
+        border: 1px solid rgba(173, 216, 230, 0.2); /* 给它一个淡淡的蓝色边框，呼应气泡颜色 */
+    }
+    
+    /* 确保鼠标圆圈在最顶层（虽然进入框内不走，但能压在边框上） */
+    #cursor-dot, #cursor-ring {
+        z-index: 10000; 
+    }
+</style>
+<script src="https://giscus.app/client.js"
+        data-repo="Milk021119/my-website"
+        data-repo-id="R_kgDOQyfWmw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOQyfWm84C0fd0"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="transparent_dark"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+    (function() {
+        // 1. 核心功能：获取当前真正应该显示的颜色
+        function getTargetTheme() {
+            // 只要 body 里有 dark 这个词，就返回深色主题
+            return document.body.classList.contains("dark") ? "dark" : "light";
+        }
+
+        // 2. 核心功能：把颜色告诉评论框
+        function syncGiscus() {
+            const iframe = document.querySelector('iframe.giscus-frame');
+            if (iframe && iframe.contentWindow) {
+                const theme = getTargetTheme();
+                iframe.contentWindow.postMessage(
+                    { giscus: { setConfig: { theme: theme } } },
+                    'https://giscus.app'
+                );
+            }
+        }
+
+        // 3. 【关键】不仅监听点击，还要监听 body 标签的“变身”
+        // 这是一个“观察者”，只要 body 的 class 变了，它就立刻触发
+        const observer = new MutationObserver(() => {
+            syncGiscus();
+        });
+
+        // 开始观察 body 的属性变化
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        // 4. 【关键】处理刚打开网页时的第一次同步
+        window.addEventListener('message', (event) => {
+            if (event.origin !== 'https://giscus.app') return;
+            if (event.data.giscus && event.data.giscus.discussion) {
+                // 等 Giscus 自己加载完了，立刻对齐一次颜色
+                syncGiscus();
+            }
+        });
+    })();
+</script>

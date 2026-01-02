@@ -1,23 +1,28 @@
-baseURL = 'https://my-website-five-smoky.vercel.app/'
-languageCode = 'zh-cn'
-title = '我的个人空间'
-theme = 'PaperMod'
-
 [params]
-    # ... 你之前的代码 ...
-    listAllPages = true
-    # 让主页显示文章
-    mainSections = ["posts"]
-    defaultTheme = "auto"
-    # 开启个人简介模式
-    [params.homeInfoParams]
-        Title = "<span id='typing-title'></span>"
-        Content = "这是我亲手搭建的第一个网站，以后我会在这里分享视频和文章。"
+    # 之前的主页简介我们把它关掉，或者精简
+    displayStats = true
 
-    # 显示社交链接（可选）
-    [[params.socialIcons]]
-        name = "bilibili"
-        url = "https://space.bilibili.com/371366292"
-
-[markup.goldmark.renderer]
-    unsafe = true
+[[menu.main]]
+    name = "🏠 首页"
+    url = "/"
+    weight = 10
+[[menu.main]]
+    name = "📹 视频更新"
+    url = "/posts"
+    weight = 20
+[[menu.main]]
+    name = "📂 内容归档"
+    url = "/archives"
+    weight = 30
+[[menu.main]]
+    name = "☕ 关于豆浆"
+    url = "/about"
+    weight = 40
+[[menu.main]]
+    name = "登录"
+    url = "/login"
+    weight = 100
+[[menu.main]]
+    name = "注册"
+    url = "/register"
+    weight = 110
